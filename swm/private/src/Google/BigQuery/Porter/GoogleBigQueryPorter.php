@@ -160,7 +160,7 @@ class GoogleBigQueryPorter
     }
     
     //
-    
+    // @TODO перед этим должен быть вызван метод подготовки данных, в котором будет заполнено поле created_at
     public function upload($data): void
     {
         $rows = [];

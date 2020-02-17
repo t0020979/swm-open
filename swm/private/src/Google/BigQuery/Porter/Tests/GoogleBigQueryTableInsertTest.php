@@ -72,27 +72,29 @@ class GoogleBigQueryTableInsertTest extends TestCase
         parent::tearDown();
     }
     
-    public function notestInsertData1(): void
+    public function testInsertData1(): void
     {
         //static::assertEquals($this->dataset->exists(), true);
         
         //$info = $this->dataset->info();
         //static::assertEquals($this->datasetName, $info['datasetReference']['datasetId']);
         
-        var_dump($this->dataset->info()['id']);
+        //var_dump($this->dataset->info()['id']);
         
         //$table = $this->porter->table();
         //static::assertEquals(true, $table->exists());
         
         //$this->porter->setTable($this->tableConfig);
         
-        var_dump($this->porter->table()->info()['id']);
+        //var_dump($this->porter->table()->info()['id']);
+        var_dump($this->porter->table()->info()['streamingBuffer']);
+        var_dump( date( 'Y-m-d H:i:s', intval($this->porter->table()->info()['streamingBuffer']['oldestEntryTime'])/1000) );
     }
     
     /**
      * @param array $data
      *
-     * @dataProvider validBigDataProvider
+     * @dataProvider validDataProvider
      */
     public function testInsertDate(array $data): void
     {

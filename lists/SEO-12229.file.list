@@ -6,6 +6,7 @@ GoogleBigQueryPorter.php
 GoogleBigQueryTableConfigInterface.php
 GoogleBigQueryTableConfig.php
 Schema
+Sql
 Tests
 GoogleBigQueryPorterConfigInterface.php
 GoogleBigQueryPorterConfig.php
@@ -13,4 +14,5 @@ GoogleBigQueryPorter.php
 GoogleBigQueryTableConfigInterface.php
 GoogleBigQueryTableConfig.php
 Schema/
+Sql/
 Tests/
