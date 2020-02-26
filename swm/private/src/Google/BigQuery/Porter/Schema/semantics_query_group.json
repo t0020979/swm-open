@@ -1,0 +1,124 @@
+{
+    "unique": [
+        "project_id",
+        "group_id",
+        "date",
+        "search_engine"
+    ],
+    "artificial": [
+        "created_at"
+    ],
+    "tableId" : "semantics_query_group_cat",
+    "fields": [
+        {
+            "name": "project_id",
+            "type": "INTEGER",
+            "mode": "Required"
+        },
+        {
+            "name": "group_id",
+            "type": "INTEGER",
+            "mode": "Required"
+        },
+        {
+            "name": "project_name",
+            "type": "STRING",
+            "mode": "Nullable"
+        },
+        {
+            "name": "group_name",
+            "type": "STRING",
+            "mode": "Nullable"
+        },
+        {
+            "name": "date",
+            "type": "DATE",
+            "mode": "Required"
+        },
+        {
+            "name": "search_engine",
+            "type": "STRING",
+            "mode": "Required"
+        },
+        {
+            "name": "queries_count",
+            "type": "INTEGER",
+            "mode": "Nullable"
+        },
+        {
+            "name": "documents_count",
+            "type": "INTEGER",
+            "mode": "Nullable"
+        },
+        {
+            "name": "frequency2",
+            "type": "INTEGER",
+            "mode": "Nullable"
+        },
+        {
+            "name": "top3_count",
+            "type": "INTEGER",
+            "mode": "Nullable"
+        },
+        {
+            "name": "top5_count",
+            "type": "INTEGER",
+            "mode": "Nullable"
+        },
+        {
+            "name": "top10_count",
+            "type": "INTEGER",
+            "mode": "Nullable"
+        },
+        {
+            "name": "top100_count",
+            "type": "INTEGER",
+            "mode": "Nullable"
+        },
+        {
+            "name": "top3_percent",
+            "type": "FLOAT64",
+            "mode": "Nullable"
+        },
+        {
+            "name": "top5_percent",
+            "type": "FLOAT64",
+            "mode": "Nullable"
+        },
+        {
+            "name": "top10_percent",
+            "type": "FLOAT64",
+            "mode": "Nullable"
+        },
+        {
+            "name": "top100_percent",
+            "type": "FLOAT64",
+            "mode": "Nullable"
+        },
+        {
+            "name": "frequency2_top10_percent",
+            "type": "FLOAT64",
+            "mode": "Nullable"
+        },
+        {
+            "name": "frequency2_top10_count",
+            "type": "INTEGER",
+            "mode": "Nullable"
+        },
+        {
+            "name": "potential_traffic",
+            "type": "FLOAT64",
+            "mode": "Nullable"
+        },
+        {
+            "name": "potential_traffic_percent",
+            "type": "FLOAT64",
+            "mode": "Nullable"
+        },
+        {
+            "name": "created_at",
+            "type": "DATETIME",
+            "mode": "Required"
+        }
+    ]
+}

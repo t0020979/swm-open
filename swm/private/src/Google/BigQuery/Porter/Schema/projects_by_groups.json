@@ -1,0 +1,32 @@
+{
+    "unique": [
+        "group_id",
+        "project_id"
+    ],
+    "artificial": [
+        "created_at"
+    ],
+    "tableId" : "projects_by_groups_cat",
+    "fields": [
+        {
+            "name": "group_id",
+            "type": "INTEGER",
+            "mode": "Required"
+        },
+        {
+            "name": "group_name",
+            "type": "STRING",
+            "mode": "Nullable"
+        },
+        {
+            "name": "project_id",
+            "type": "INTEGER",
+            "mode": "Required"
+        },
+        {
+            "name": "created_at",
+            "type": "DATETIME",
+            "mode": "Required"
+        }
+    ]
+}
