@@ -9,8 +9,6 @@ use Seowork\Google\BigQuery\Porter\GoogleBigQueryStorage;
 
 /**
  * Tet A.02 - Fill Storage and Process Data
- * Class GoogleBigQueryStorageFillTest
- * @package Seowork\Google\BigQuery\Porter\Tests
  */
 class GoogleBigQueryStorageFillTest extends TestCase
 {

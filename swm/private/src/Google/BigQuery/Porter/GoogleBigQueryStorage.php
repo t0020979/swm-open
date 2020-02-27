@@ -53,14 +53,9 @@ class GoogleBigQueryStorage implements GoogleBigQueryStorageInterface
     }
     
     /**
-     * @param array $data        [ $row, $row, row, ... ]
-     *                           $row  ~ [
-     *                           'field1' => "value1",
-     *                           'field2' => "value2",
-     *                           ...
-     *                           ]
+     * @param array[] $data
      */
-    public function fill($data): void
+    public function fill(array $data): void
     {
         $pad = [];
         foreach ($data as $row) {
@@ -77,14 +72,12 @@ class GoogleBigQueryStorage implements GoogleBigQueryStorageInterface
         $this->rows = $this->decorateData($pad);
     }
     
-    // private part
-    
-    private function getFilePath($filename): string
+    private function getFilePath(string $filename): string
     {
         return __DIR__ . DIRECTORY_SEPARATOR . 'Schema' . DIRECTORY_SEPARATOR . $filename . '.json';
     }
     
-    private function readJson($tableNameFile): void
+    private function readJson(string $tableNameFile): void
     {
         if (\file_exists($this->getFilePath($tableNameFile))) {
             $this->tableFileContent = json_decode(file_get_contents($this->getFilePath($tableNameFile)), true);
@@ -105,7 +98,7 @@ class GoogleBigQueryStorage implements GoogleBigQueryStorageInterface
         }
     }
     
-    private function notationCreatedAt($pad): array
+    private function notationCreatedAt(array $pad): array
     {
         $artificialKey = 'created_at';
         
@@ -119,7 +112,7 @@ class GoogleBigQueryStorage implements GoogleBigQueryStorageInterface
         return $pad;
     }
     
-    private function decorateData($pad): array
+    private function decorateData(array $pad): array
     {
         $rows = [];
         foreach ($pad as $row) {

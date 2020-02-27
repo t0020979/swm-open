@@ -9,10 +9,6 @@ use Google\Cloud\BigQuery\Dataset;
 use Google\Cloud\BigQuery\InsertResponse;
 use Google\Cloud\BigQuery\Table;
 
-/**
- * Class GoogleBigQueryPorter
- * @package Seowork\Google\BigQuery\Porter
- */
 class GoogleBigQueryPorter
 {
     /**
@@ -23,7 +19,6 @@ class GoogleBigQueryPorter
      * @var GoogleBigQueryPorterConfig
      */
     private $porterConfig;
-    //
     /**
      * @var Dataset
      */
@@ -36,7 +31,6 @@ class GoogleBigQueryPorter
      * @var bool - true if DataSet was just Created for current transaction
      */
     private $isDatasetNew;
-    //
     /**
      * @var GoogleBigQueryStorage
      */
@@ -49,8 +43,6 @@ class GoogleBigQueryPorter
      * @var bool - true id Table was just Created for current transaction
      */
     private $isTableNew;
-    
-    //
     
     public function __construct(GoogleBigQueryPorterConfigInterface $porterConfig)
     {
@@ -94,15 +86,13 @@ class GoogleBigQueryPorter
         return $info['datasetReference']['projectId'];
     }
     
-    //
-    
     /**
      * Find Or Create Table by it Name
      * https://cloud.google.com/bigquery/docs/tables
      *
      * @param GoogleBigQueryStorageInterface $storage
      */
-    protected function initTable($storage): void
+    protected function initTable(GoogleBigQueryStorageInterface $storage): void
     {
         $this->storage = $storage;
         $this->table   = $this->dataset->table($this->storage->tableId());
@@ -119,7 +109,7 @@ class GoogleBigQueryPorter
      *
      * @return Table
      */
-    public function table($storage = null): Table
+    public function table(GoogleBigQueryStorageInterface $storage = null): Table
     {
         if ($storage !== null && $storage !== $this->storage) {
             $this->initTable($storage);
@@ -129,16 +119,11 @@ class GoogleBigQueryPorter
     }
     
     /**
-     * @param array $data        [ $row, $row, row, ... ]
-     *                           $row  ~ [
-     *                           'field1' => "value1",
-     *                           'field2' => "value2",
-     *                           ...
-     *                           ]
+     * @param array[] $data
      *
      * @return InsertResponse
      */
-    public function upload($data = null)
+    public function upload(array $data = null): InsertResponse
     {
         if ($data !== null) {
             $this->storage->fill($data);

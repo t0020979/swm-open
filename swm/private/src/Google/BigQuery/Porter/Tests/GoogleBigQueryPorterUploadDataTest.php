@@ -14,7 +14,6 @@ use Seowork\Google\BigQuery\Porter\GoogleBigQueryStorage;
  * Test C.03 - Insert Data to Table
  * @ATTENTION - DEVELOPER ONLY TEST
  * @ATTENTION - using insertRows (multirows) - available only in paid project
- * @package   Seowork\Google\BigQuery\Porter\Tests
  */
 class GoogleBigQueryPorterUploadDataTest extends TestCase
 {
@@ -72,14 +71,14 @@ class GoogleBigQueryPorterUploadDataTest extends TestCase
     {
         $response = $this->porter->upload($data);
         static::assertNotEmpty($response);
-        static::assertEquals(true, $response->isSuccessful());
+        static::assertTrue( $response->isSuccessful());
         
         $info = $this->porter->table()->info();
         
         static::assertArrayHasKey('streamingBuffer', $info);
         static::assertArrayHasKey('estimatedRows', $info['streamingBuffer']);
         static::assertArrayHasKey('oldestEntryTime', $info['streamingBuffer']);
-        static::assertEquals(true, (int) $info['streamingBuffer']['estimatedRows'] > 0);
+        static::assertTrue((int) $info['streamingBuffer']['estimatedRows'] > 0);
         
         // Estimated time for delete
         //echo date('Y-m-d H:i:s', ((int) $info['streamingBuffer']['oldestEntryTime']) / 1000), "\n";

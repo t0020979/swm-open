@@ -13,7 +13,6 @@ use Seowork\Google\BigQuery\Porter\GoogleBigQueryStorage;
 /**
  * Test C.02 - Check Config of Table as - create Table by Schema and Delete Table
  * @ATTENTION - DEVELOPER ONLY TEST
- * @package   Seowork\Google\BigQuery\Porter\Tests
  */
 class GoogleBigQueryPorterCrudTableTest extends TestCase
 {
@@ -64,7 +63,7 @@ class GoogleBigQueryPorterCrudTableTest extends TestCase
     
     public function testOpenDataset(): void
     {
-        static::assertEquals($this->dataset->exists(), true);
+        static::assertTrue($this->dataset->exists());
         
         $info = $this->dataset->info();
         static::assertEquals($this->datasetId, $info['datasetReference']['datasetId']);
@@ -73,7 +72,7 @@ class GoogleBigQueryPorterCrudTableTest extends TestCase
     public function testCreateTable(): void
     {
         $table = $this->porter->table($this->storage);
-        static::assertEquals(true, $table->exists());
+        static::assertTrue($table->exists());
     }
     
     public function testDeleteTable(): void
@@ -81,7 +80,7 @@ class GoogleBigQueryPorterCrudTableTest extends TestCase
         $table = $this->porter->table($this->storage);
         if ($table->exists()) {
             $table->delete();
-            static::assertEquals(false, $table->exists());
+            static::assertNotTrue( $table->exists());
         }
     }
 }

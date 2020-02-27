@@ -9,13 +9,12 @@ use Seowork\Google\BigQuery\Porter\GoogleBigQueryPorterConfig;
 
 /**
  * Test B.01 - config for porter
- * @package Seowork\Google\BigQuery\Porter\Tests
  */
 class GoogleBigQueryConfigTest extends TestCase
 {
     public function testPath(): void
     {
-        static::assertEquals(true, \defined('KEY_PATCH'), 'Constant KEY_PATCH is not Defined');
+        static::assertTrue( \defined('KEY_PATCH'), 'Constant KEY_PATCH is not Defined');
         static::assertEquals('/app/common/keys/', \KEY_PATCH, 'Constant KEY_PATCH is Change value');
     }
     

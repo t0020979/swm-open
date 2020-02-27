@@ -9,8 +9,6 @@ use Seowork\Google\BigQuery\Porter\GoogleBigQueryStorage;
 
 /**
  * Tet A.01 - Create Storage Based on TableName.json File
- * Class GoogleBigQueryStorageBuildTest
- * @package Seowork\Google\BigQuery\Porter\Tests
  */
 class GoogleBigQueryStorageBuildTest extends TestCase
 {

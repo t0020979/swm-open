@@ -11,7 +11,6 @@ use Seowork\Google\BigQuery\Porter\GoogleBigQueryPorterConfig;
 /**
  * Test C.01 - Connect to BQ as Create & Delete Dataset
  * @ATTENTION - DEVELOPER ONLY TEST
- * @package   Seowork\Google\BigQuery\Porter\Tests
  */
 class GoogleBigQueryPorterCrudDatasetTest extends TestCase
 {
@@ -46,7 +45,7 @@ class GoogleBigQueryPorterCrudDatasetTest extends TestCase
     public function testOpenDataset(): void
     {
         $dataset = $this->porter->dataset();
-        static::assertEquals($dataset->exists(), true);
+        static::assertTrue($dataset->exists());
         
         $info = $dataset->info();
         static::assertEquals($this->datasetId, $info['datasetReference']['datasetId']);
@@ -57,9 +56,9 @@ class GoogleBigQueryPorterCrudDatasetTest extends TestCase
     public function testDeleteDataset(): void
     {
         $dataset = $this->porter->dataset();
-        static::assertEquals($dataset->exists(), true);
+        static::assertTrue($dataset->exists());
         
         $dataset->delete();
-        static::assertEquals($dataset->exists(), false);
+        static::assertTrue($dataset->exists());
     }
 }

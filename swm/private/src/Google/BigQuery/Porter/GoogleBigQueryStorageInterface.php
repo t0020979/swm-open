@@ -48,14 +48,4 @@ interface GoogleBigQueryStorageInterface
      *                       ]
      */
     public function rows(): array;
-    
-    /**
-     * @param array $data        [ $row, $row, row, ... ]
-     *                           $row  ~ [
-     *                           'field1' => "value1",
-     *                           'field2' => "value2",
-     *                           ...
-     *                           ]
-     */
-    public function fill($data): void;
 }
